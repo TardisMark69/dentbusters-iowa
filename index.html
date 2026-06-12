@@ -55,6 +55,7 @@
       color: var(--gold);
       margin-bottom: 0.6rem;
     }
+    #services .section-label { color: #b87d00; }
     .section-title {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: clamp(2.4rem, 5vw, 3.6rem);
@@ -124,6 +125,7 @@
       transition: color 0.15s;
     }
     .nav-links a:hover { color: var(--gold); }
+    .nav-links a.active { color: var(--gold); }
     .nav-cta {
       background: var(--gold);
       color: var(--navy) !important;
@@ -684,7 +686,7 @@
       </div>
       <p class="price-note">All repairs backed by a <strong>Limited Lifetime Warranty</strong>. Text us a photo for a fast, no-obligation estimate.</p>
       <div style="text-align:center; margin-top:2rem;">
-        <a href="sms:7127903761" class="btn btn-gold">📱 Text a Photo for a Free Estimate</a>
+        <a href="#contact" class="btn btn-gold">📱 Text a Photo for a Free Estimate</a>
       </div>
     </div>
   </section>
@@ -907,6 +909,25 @@
     const links  = document.getElementById('navLinks');
     toggle.addEventListener('click', () => links.classList.toggle('open'));
     links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]:not(.nav-cta)');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navAnchors.forEach(a => a.classList.remove('active'));
+          const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, {
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(s => observer.observe(s));
   </script>
 
 </body>
