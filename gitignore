@@ -1,0 +1,17 @@
+# Qt build artifacts
+build/
+*.o
+*.obj
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+.qmake.stash
+
+# Optional Qt preview wrapper (not part of the static site)
+main.cpp
+dentbusters.qrc
+
+# Qt Creator project user files (machine-specific)
+*.pro.user
+*.pro.user.*
+CMakeLists.txt.user

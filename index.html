@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dentbusters of Iowa — Expert Paintless Dent Repair in Grimes, IA. Family owned since 1992. Door dings, hail damage, EV & aluminum repair. Text us a photo for a free estimate." />
+  <title>Dentbusters of Iowa | Paintless Dent Repair — Grimes, IA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── CSS Variables ─────────────────────────────── */
+    :root {
+      --navy:       #0a1628;
+      --navy-mid:   #112240;
+      --blue:       #1565c0;
+      --blue-light: #1e88e5;
+      --gold:       #f9a825;
+      --gold-light: #fdd835;
+      --white:      #f5f7fa;
+      --gray-light: #e8ecf1;
+      --gray:       #8a9ab0;
+      --text:       #1a2640;
+      --radius:     6px;
+      --shadow:     0 4px 24px rgba(10,22,40,0.13);
+    }
+
+    /* ── Reset ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Utility ────────────────────────────────────── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 5rem 0; }
+    .section--dark { background: var(--navy); color: var(--white); }
+    .section--mid  { background: var(--navy-mid); color: var(--white); }
+    .section--gray { background: var(--gray-light); }
+
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+    .section--dark .section-sub,
+    .section--mid  .section-sub  { color: #8aa0be; }
+
+    /* ── Buttons ────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.18); }
+    .btn-gold  { background: var(--gold); color: var(--navy); }
+    .btn-gold:hover { background: var(--gold-light); }
+    .btn-outline { border: 2px solid var(--white); color: var(--white); }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+    .btn-blue { background: var(--blue); color: var(--white); }
+    .btn-blue:hover { background: var(--blue-light); }
+
+    /* ── Navigation ─────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,22,40,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--gold);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.9rem 1.5rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .nav-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #aec0d8;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: var(--radius);
+      font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+    /* Mobile nav toggle */
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle span {
+      display: block; width: 24px; height: 2px;
+      background: var(--white); margin: 5px 0;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    /* ── Hero ───────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex; align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 5rem;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(21,101,192,0.18) 0%, transparent 70%),
+        repeating-linear-gradient(
+          -55deg,
+          transparent,
+          transparent 40px,
+          rgba(255,255,255,0.015) 40px,
+          rgba(255,255,255,0.015) 41px
+        );
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 700px; }
+    .hero-logo {
+      max-width: 380px;
+      width: 100%;
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.05s forwards;
+      /* Logo has a dark graphic on transparent — invert for dark background */
+      filter: invert(1) brightness(1.1);
+    }
+
+    .hero-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.1s forwards;
+    }
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.25s forwards;
+    }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero-sub {
+      font-size: 1.2rem;
+      color: #8aa0be;
+      margin-bottom: 2rem;
+      max-width: 520px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.4s forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.55s forwards;
+    }
+    .hero-badges {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+      margin-top: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.7s forwards;
+    }
+    .hero-badge {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #aec0d8;
+    }
+    .hero-badge .icon { font-size: 1.3rem; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Text-a-Photo CTA Banner ─────────────────────── */
+    .cta-banner {
+      background: var(--gold);
+      color: var(--navy);
+      padding: 1.4rem 1.5rem;
+      text-align: center;
+    }
+    .cta-banner p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .cta-banner a {
+      color: var(--navy);
+      text-decoration: underline;
+      font-weight: 900;
+    }
+
+    /* ── Services Grid ───────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--blue);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(10,22,40,0.16); }
+    .service-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+    .service-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: var(--navy);
+    }
+    .service-card p { font-size: 0.95rem; color: #556; line-height: 1.6; }
+
+    /* ── Pricing ─────────────────────────────────────── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+    .price-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      text-align: center;
+    }
+    .price-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .price-range {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .price-card p { font-size: 0.88rem; color: #8aa0be; }
+    .price-note {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 1rem;
+      color: #8aa0be;
+    }
+    .price-note strong { color: var(--gold); }
+
+    /* ── EV/Tesla Section ────────────────────────────── */
+    .ev-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .ev-section .section-label { color: var(--gold); }
+    .ev-list { list-style: none; margin-top: 1.5rem; }
+    .ev-list li {
+      display: flex; align-items: flex-start; gap: 0.8rem;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.95rem;
+      color: #c0d0e8;
+    }
+    .ev-list li:last-child { border-bottom: none; }
+    .ev-list .check { color: var(--gold); font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+    .ev-vehicles {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+    .ev-tag {
+      background: rgba(249,168,37,0.15);
+      border: 1px solid rgba(249,168,37,0.35);
+      color: var(--gold);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.8rem;
+      border-radius: 3px;
+    }
+    .ev-visual {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .ev-visual .big-icon { font-size: 5rem; margin-bottom: 1rem; }
+    .ev-visual p { color: #8aa0be; font-size: 0.9rem; line-height: 1.7; }
+
+    /* ── Gallery Placeholder ─────────────────────────── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    .gallery-placeholder {
+      background: var(--gray-light);
+      border-radius: var(--radius);
+      aspect-ratio: 4/3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      gap: 0.5rem;
+      border: 2px dashed #c8d4e0;
+    }
+    .gallery-placeholder .ph-icon { font-size: 2.5rem; opacity: 0.4; }
+    .gallery-note {
+      margin-top: 1.5rem;
+      text-align: center;
+      color: var(--gray);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    /* ── About / Credentials ─────────────────────────── */
+    .creds-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .cred-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .cred-card .cred-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .cred-card p { font-size: 0.9rem; color: #8aa0be; }
+
+    /* ── Testimonials ────────────────────────────────── */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .review-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+    }
+    .stars { color: var(--gold); font-size: 1.1rem; margin-bottom: 0.8rem; }
+    .review-card p { font-size: 0.95rem; color: #445; line-height: 1.7; margin-bottom: 1rem; }
+    .reviewer {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--gray);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .reviews-cta {
+      text-align: center;
+      margin-top: 2rem;
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+    .reviews-cta a { color: var(--blue-light); text-decoration: underline; }
+
+    /* ── Contact ─────────────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-info h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-item .ci-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .contact-item h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+    .contact-item p, .contact-item a {
+      color: #8aa0be;
+      font-size: 0.95rem;
+    }
+    .contact-item a:hover { color: var(--white); }
+    .text-cta-box {
+      background: rgba(249,168,37,0.12);
+      border: 2px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+    }
+    .text-cta-box .icon { font-size: 3rem; margin-bottom: 0.8rem; }
+    .text-cta-box h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .text-cta-box p { color: #8aa0be; font-size: 0.95rem; margin-bottom: 1.2rem; }
+    .phone-big {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 1rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Footer ─────────────────────────────────────── */
+    footer {
+      background: #060e1c;
+      color: #8aa0be;
+      padding: 3rem 0 2rem;
+      border-top: 2px solid var(--gold);
+    }
+    .footer-inner {
+      display: flex; flex-wrap: wrap; gap: 2rem;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    .footer-brand .nav-logo { font-size: 1.6rem; margin-bottom: 0.5rem; }
+    .footer-brand p { font-size: 0.88rem; max-width: 260px; line-height: 1.6; }
+    .footer-links h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: 0.4rem; }
+    .footer-links a { font-size: 0.9rem; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+      font-size: 0.82rem;
+    }
+
+    /* ── Responsive ─────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; }
+      .nav-links.open {
+        display: flex;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--navy);
+        padding: 1rem 1.5rem 1.5rem;
+        border-bottom: 2px solid var(--gold);
+        gap: 0.8rem;
+      }
+      .nav-toggle { display: block; }
+      .ev-section  { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────── -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">Dent<span>busters</span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#ev">EV &amp; Tesla</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <img src="Dentbusters_Logo_Blue.png" alt="Dentbusters of Iowa — Who 'Ya Gonna Call?" class="hero-logo" />
+        <p class="hero-eyebrow">Grimes, Iowa · Since 1992</p>
+        <h1>Your Dent.<br /><em>Gone.</em><br />No Paint.</h1>
+        <p class="hero-sub">Expert Paintless Dent Repair for door dings, hail damage, and everything in between. Family owned, master certified, and backed by a Limited Lifetime Warranty.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-gold">Text Us a Photo — Free Estimate</a>
+          <a href="#services" class="btn btn-outline">See What We Fix</a>
+        </div>
+        <div class="hero-badges">
+          <div class="hero-badge"><span class="icon">⭐</span> 5.0 Google Rating</div>
+          <div class="hero-badge"><span class="icon">🏆</span> International Dent Olympics</div>
+          <div class="hero-badge"><span class="icon">✅</span> BBB A+ Accredited</div>
+          <div class="hero-badge"><span class="icon">🔒</span> Lifetime Warranty</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Text-a-Photo Banner ────────────────────────── -->
+  <div class="cta-banner">
+    <p>📱 Text a photo of your dent to <a href="sms:8886968866">888-696-8866</a> — get a free estimate within 2 hours</p>
+  </div>
+
+  <!-- ── Services ───────────────────────────────────── -->
+  <section class="section section--gray" id="services">
+    <div class="container">
+      <p class="section-label">What We Fix</p>
+      <h2 class="section-title">Expert Repair for Every Dent</h2>
+      <p class="section-sub">From a parking lot door ding to a full hail storm — our master certified technicians handle it all without ever touching your paint.</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🚗</div>
+          <h3>Door Dings</h3>
+          <p>Those frustrating parking lot dents. We fix them fast — often while you wait. Cheaper than you'd expect, and your paint stays untouched.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💥</div>
+          <h3>Minor Dents</h3>
+          <p>Oddly shaped dents from small objects or minor collisions. Repaired at a fraction of the cost of conventional body and paint work.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🌧️</div>
+          <h3>Hail Damage</h3>
+          <p>PDR is the most efficient and cost-effective method for hail repairs. We work directly with insurance and can assist with rental arrangements.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⚡</div>
+          <h3>EV &amp; Aluminum Repair</h3>
+          <p>Tesla, Rivian, and other aluminum-bodied EVs require specialized skill. We have the tools and experience to do it right. <a href="#ev" style="color:var(--blue);">Learn more →</a></p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🚐</div>
+          <h3>Mobile Service</h3>
+          <p>We come to you. Home, office, or dealership — our mobile team brings the shop to your driveway across central Iowa.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏢</div>
+          <h3>Dealerships &amp; Fleets</h3>
+          <p>Routine lot damage, pre-sale cosmetic cleanup, and hail storm response for dealerships and fleet managers across Iowa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pricing ─────────────────────────────────────── -->
+  <section class="section section--dark" id="pricing">
+    <div class="container">
+      <p class="section-label">Transparent Pricing</p>
+      <h2 class="section-title">No Surprises. No Runaround.</h2>
+      <p class="section-sub">Most people don't call because they don't know what to expect. Here's a ballpark — then text us a photo for your exact free estimate.</p>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Door Dings</h3>
+          <div class="price-range">$75–$150</div>
+          <p>Small parking lot dents. Often done while you wait.</p>
+        </div>
+        <div class="price-card">
+          <h3>Minor Dents</h3>
+          <div class="price-range">$150–$350</div>
+          <p>Larger or oddly shaped dents. Still a fraction of body shop cost.</p>
+        </div>
+        <div class="price-card">
+          <h3>Hail Damage</h3>
+          <div class="price-range">Free Est.</div>
+          <p>Varies by severity. We work directly with your insurance carrier.</p>
+        </div>
+        <div class="price-card">
+          <h3>EV / Aluminum</h3>
+          <div class="price-range">Call Us</div>
+          <p>Specialized repair — pricing depends on panel and damage. Always worth it vs. conventional bodywork.</p>
+        </div>
+      </div>
+      <p class="price-note">All repairs backed by a <strong>Limited Lifetime Warranty</strong>. Text us a photo for a fast, no-obligation estimate.</p>
+      <div style="text-align:center; margin-top:2rem;">
+        <a href="sms:8886968866" class="btn btn-gold">📱 Text a Photo for a Free Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EV / Tesla Section ─────────────────────────── -->
+  <section class="section section--mid" id="ev">
+    <div class="container">
+      <div class="ev-section">
+        <div>
+          <p class="section-label">EV &amp; Aluminum Specialists</p>
+          <h2 class="section-title" style="color:var(--white);">Tesla &amp; EV Dent Repair Done Right</h2>
+          <p class="section-sub">Most PDR shops aren't equipped for aluminum panels. We are — with the tools, training, and track record to prove it.</p>
+
+          <ul class="ev-list">
+            <li><span class="check">✦</span>Aluminum work-hardens differently than steel — requires specialized glue-pull technique and heat management</li>
+            <li><span class="check">✦</span>EV repairs require extra safety awareness around high-voltage cables behind panels</li>
+            <li><span class="check">✦</span>PDR preserves your factory paint — critical for Tesla's multi-coat finishes</li>
+            <li><span class="check">✦</span>Fraction of the cost vs. Tesla Service Center conventional body repair</li>
+            <li><span class="check">✦</span>Backed by our Limited Lifetime Warranty</li>
+          </ul>
+
+          <div class="ev-vehicles">
+            <span class="ev-tag">Tesla Model 3</span>
+            <span class="ev-tag">Tesla Model Y</span>
+            <span class="ev-tag">Tesla Model S</span>
+            <span class="ev-tag">Tesla Model X</span>
+            <span class="ev-tag">Rivian R1T / R1S</span>
+            <span class="ev-tag">Ford Mustang Mach-E</span>
+            <span class="ev-tag">Chevy Bolt</span>
+            <span class="ev-tag">+ More</span>
+          </div>
+        </div>
+
+        <div class="ev-visual">
+          <div class="big-icon">⚡</div>
+          <p>Iowa's EV ownership is growing fast. Most PDR technicians don't advertise aluminum experience — we've been doing it for years. Your Tesla is safe with us.</p>
+          <br />
+          <a href="sms:8886968866" class="btn btn-gold" style="width:100%; text-align:center;">Text Us About Your EV →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Gallery ────────────────────────────────────── -->
+  <section class="section section--gray" id="gallery">
+    <div class="container">
+      <p class="section-label">Before &amp; After</p>
+      <h2 class="section-title">The Results Speak for Themselves</h2>
+      <p class="section-sub">PDR is a visual craft. Every photo below is a real repair — same paint, no filler, no respraying.</p>
+
+      <div class="gallery-grid">
+        <div class="gallery-placeholder"><span class="ph-icon">📷</span>Before / After — Door Ding</div>
+        <div class="gallery-placeholder"><span class="ph-icon">📷</span>Before / After — Hail Damage</div>
+        <div class="gallery-placeholder"><span class="ph-icon">📷</span>Before / After — Crease Repair</div>
+        <div class="gallery-placeholder"><span class="ph-icon">📷</span>Before / After — Tesla Model 3</div>
+        <div class="gallery-placeholder"><span class="ph-icon">📷</span>Before / After — Minor Dent</div>
+        <div class="gallery-placeholder"><span class="ph-icon">📷</span>Before / After — Hail Damage</div>
+      </div>
+      <p class="gallery-note">Photos coming soon — check our <a href="https://www.google.com/maps/search/Dentbusters+of+Iowa" target="_blank" style="color:var(--blue);">Google listing</a> for current before/after photos.</p>
+    </div>
+  </section>
+
+  <!-- ── About / Credentials ────────────────────────── -->
+  <section class="section section--dark" id="about">
+    <div class="container">
+      <p class="section-label">About Dentbusters</p>
+      <h2 class="section-title">Family Owned. 30+ Years Strong.</h2>
+      <p class="section-sub">What started as a few brothers mastering the art of PDR has grown into one of the largest hail service networks in the region.</p>
+
+      <div class="creds-grid">
+        <div class="cred-card">
+          <div class="cred-num">1992</div>
+          <p>Founded in Iowa — over 30 years of PDR experience</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-num">5.0★</div>
+          <p>Perfect Google rating with dozens of verified reviews</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-num">8</div>
+          <p>Family members working as certified PDR technicians</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-num">A+</div>
+          <p>BBB Accredited — Better Business Bureau top rating</p>
+        </div>
+      </div>
+
+      <div style="margin-top:3rem; max-width:700px;">
+        <p style="color:#8aa0be; line-height:1.8;">Dentbusters grew up in Iowa. In the early 90s, PDR was a new concept — our founders traveled the country demonstrating the craft before most shops had ever heard of it. Today, 8 family members work as PDR technicians, and we've built one of the largest hail service networks across Iowa and neighboring states. We're proud winners of the <strong style="color:var(--gold);">International Dent Olympics</strong> — a benchmark of the highest technical skill in the trade.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Testimonials ───────────────────────────────── -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <p class="section-label">What Customers Say</p>
+      <h2 class="section-title">5.0 Stars on Google</h2>
+      <p class="section-sub">Don't take our word for it — here's what real customers say.</p>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Testimonial coming soon..."</p>
+          <div class="reviewer">— Google Reviewer</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Testimonial coming soon..."</p>
+          <div class="reviewer">— Google Reviewer</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Testimonial coming soon..."</p>
+          <div class="reviewer">— Google Reviewer</div>
+        </div>
+      </div>
+      <p class="reviews-cta">Read all reviews on <a href="https://www.google.com/maps/search/Dentbusters+of+Iowa" target="_blank">Google Maps</a></p>
+    </div>
+  </section>
+
+  <!-- ── Contact ─────────────────────────────────────── -->
+  <section class="section section--dark" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="section-label">Get in Touch</p>
+          <h2>Ready to Fix That Dent?</h2>
+
+          <div class="contact-item">
+            <span class="ci-icon">📍</span>
+            <div>
+              <h4>Location</h4>
+              <p>1200 SW Brookside Circle, Suite Q<br />Grimes, IA 50111</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">📞</span>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:8886968866">888-696-8866</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">📧</span>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:admin@dentbusters.net">admin@dentbusters.net</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">🕐</span>
+            <div>
+              <h4>Hours</h4>
+              <p>Monday – Friday: 8:30 AM – 5:00 PM<br />Saturday &amp; Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-cta-box">
+          <div class="icon">📱</div>
+          <h3>Fastest Way to Get a Quote</h3>
+          <p>Text us a clear photo of your dent — we'll respond with a free estimate within 2 hours during business hours. No pressure, no obligation.</p>
+          <a class="phone-big" href="sms:8886968866">888-696-8866</a>
+          <a href="sms:8886968866" class="btn btn-gold" style="width:100%; text-align:center; display:block;">Text a Photo Now</a>
+          <p style="margin-top:1rem; font-size:0.82rem; color:#8aa0be;">Or call the same number to speak with us directly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-logo">Dent<span>busters</span></div>
+          <p>Expert Paintless Dent Repair in Grimes, Iowa. Family owned since 1992. Serving central Iowa and beyond.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Door Dings</a></li>
+            <li><a href="#services">Hail Damage</a></li>
+            <li><a href="#ev">EV &amp; Tesla Repair</a></li>
+            <li><a href="#services">Mobile Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Service Areas</h4>
+          <ul>
+            <li><a href="#contact">Grimes</a></li>
+            <li><a href="#contact">Des Moines</a></li>
+            <li><a href="#contact">Ankeny</a></li>
+            <li><a href="#contact">Urbandale</a></li>
+            <li><a href="#contact">West Des Moines</a></li>
+            <li><a href="#contact">Ames · Newton · Marshalltown</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Dentbusters of Iowa, Inc. All rights reserved.</span>
+        <span>BBB A+ Accredited · International Dent Olympics Winner · Licensed &amp; Insured</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  </script>
+
+</body>
+</html>
