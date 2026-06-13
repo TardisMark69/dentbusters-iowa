@@ -420,11 +420,18 @@
     /* ── Recognition / Accomplishments ──────────────── */
     .recognition-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 2.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
       margin-top: 3.5rem;
       align-items: start;
+      width: 100%;
     }
+    .recog-block {
+      padding: 0 2rem;
+      box-sizing: border-box;
+    }
+    .recog-block:first-child { padding-left: 0; }
+    .recog-block:last-child  { padding-right: 0; }
     .recog-block h4 {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 1.15rem;
@@ -436,6 +443,8 @@
       border-bottom: 1px solid rgba(255,255,255,0.1);
       padding-bottom: 0.6rem;
     }
+    .recog-block.center { text-align: center; }
+    .recog-block.center h4 { text-align: center; }
     .recog-badge {
       display: block;
       margin-bottom: 1.2rem;
@@ -449,13 +458,13 @@
     .vale-dark {
       background: rgba(255,255,255,0.06);
       border-radius: var(--radius);
-      padding: 0.9rem 1rem;
+      padding: 0.5rem 0.8rem;
       display: block;
       width: 220px;
       max-width: 100%;
       box-sizing: border-box;
     }
-    .vale-dark img { width: 100%; height: auto; display: block; }
+    .vale-dark img { width: 100%; height: 52px; object-fit: contain; display: block; }
     .trophy-wrap {
       text-align: center;
     }
@@ -875,7 +884,7 @@
         </div>
 
         <!-- Accomplishments -->
-        <div class="recog-block">
+        <div class="recog-block center">
           <h4>Accomplishments</h4>
           <div class="trophy-wrap">
             <img src="Trophy_Scale.png" alt="International Dent Olympics Trophy" />
