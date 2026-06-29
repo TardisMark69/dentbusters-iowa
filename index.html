@@ -168,10 +168,15 @@
         );
     }
     .hero-content { position: relative; z-index: 1; max-width: 700px; }
-    .hero-logo {
-      max-width: 380px;
-      width: 100%;
+    .hero-logo-wrap {
+      width: min(92vw, 1000px);
+      margin-left: 50%;
+      transform: translateX(-50%);
       margin-bottom: 1.8rem;
+    }
+    .hero-logo {
+      display: block;
+      width: 100%;
       opacity: 0;
       animation: fadeUp 0.6s 0.05s forwards;
     }
@@ -696,7 +701,9 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <img src="Dentbusters_Logo_Hail.gif" alt="Dentbusters of Iowa — Who 'Ya Gonna Call?" class="hero-logo" />
+        <div class="hero-logo-wrap">
+          <img src="Dentbusters_Logo_Hail.gif" alt="Dentbusters of Iowa — Who 'Ya Gonna Call?" class="hero-logo" />
+        </div>
         <p class="hero-eyebrow">Grimes, Iowa · Since 1992</p>
         <h1>Your Dent.<br /><em>Gone.</em><br />No Paint.</h1>
         <p class="hero-sub">Expert Paintless Dent Repair for door dings, hail damage, and everything in between. Family owned, master certified, and backed by a Limited Lifetime Warranty.</p>
