@@ -114,6 +114,8 @@
       font-weight: 900;
       color: var(--white);
       letter-spacing: 0.04em;
+      text-decoration: none;
+      cursor: pointer;
     }
     .nav-logo span { color: var(--gold); }
     .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
@@ -129,13 +131,11 @@
     .nav-links a:hover { color: var(--gold); }
     .nav-links a.active { color: var(--gold); }
     .nav-cta {
-      background: var(--gold);
-      color: var(--navy) !important;
-      padding: 0.45rem 1.1rem;
+      border: 2px solid var(--gold);
       border-radius: var(--radius);
-      font-weight: 700 !important;
+      padding: 0.4rem 1rem;
     }
-    .nav-cta:hover { background: var(--gold-light) !important; color: var(--white) !important; }
+    .nav-cta:hover { color: var(--gold); border-color: var(--gold-light); }
 
     /* Mobile nav toggle */
     .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
@@ -169,7 +169,7 @@
     }
     .hero-content { position: relative; z-index: 1; max-width: 700px; }
     .hero-logo-wrap {
-      width: min(92vw, 1000px);
+      width: min(92vw, 900px);
       margin-left: 50%;
       transform: translateX(-50%);
       margin-bottom: 1.8rem;
@@ -675,12 +675,12 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
 
   <!-- ── Navigation ─────────────────────────────────── -->
   <nav>
     <div class="nav-inner">
-      <div class="nav-logo">Dent<span>busters</span></div>
+      <a href="#top" class="nav-logo" aria-label="Dentbusters — back to top">Dent<span>busters</span></a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#services">Services</a></li>
         <li><a href="#pricing">Pricing</a></li>
