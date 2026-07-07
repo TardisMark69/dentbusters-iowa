@@ -386,31 +386,45 @@
     .ev-visual .big-icon { font-size: 6rem; margin-bottom: 1rem; }
     .ev-visual p { color: #b8cce0; font-size: 1.08rem; line-height: 1.7; }
 
-    /* ── Gallery Placeholder ─────────────────────────── */
+    /* ── Gallery ─────────────────────────────────────── */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1rem;
       margin-top: 2.5rem;
     }
-    .gallery-placeholder {
-      background: var(--gray-light);
+    .gallery-item {
+      position: relative;
       border-radius: var(--radius);
+      overflow: hidden;
       aspect-ratio: 4/3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray);
+      box-shadow: var(--shadow);
+      background: var(--gray-light);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      will-change: transform;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gallery-item:hover {
+      transform: scale(1.25);
+      z-index: 10;
+      box-shadow: 0 24px 60px rgba(10,22,40,0.40);
+    }
+    .gallery-caption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 1.4rem 1rem 0.8rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 55%, transparent 100%);
+      color: var(--white);
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 1.08rem;
       font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      gap: 0.5rem;
-      border: 2px dashed #c8d4e0;
     }
-    .gallery-placeholder .ph-icon { font-size: 3rem; opacity: 0.4; }
     .gallery-note {
       margin-top: 1.5rem;
       text-align: center;
@@ -869,14 +883,31 @@
       <p class="section-sub">PDR is a visual craft. Every photo below is a real repair — same paint, no filler, no respraying, fraction of the cost of a bodyshop repair.</p>
 
       <div class="gallery-grid">
-        <div class="gallery-placeholder"><span class="ph-icon">📷</span>Before / After — Door Ding</div>
-        <div class="gallery-placeholder"><span class="ph-icon">📷</span>Before / After — Hail Damage</div>
-        <div class="gallery-placeholder"><span class="ph-icon">📷</span>Before / After — Crease Repair</div>
-        <div class="gallery-placeholder"><span class="ph-icon">📷</span>Before / After — Tesla Model 3</div>
-        <div class="gallery-placeholder"><span class="ph-icon">📷</span>Before / After — Minor Dent</div>
-        <div class="gallery-placeholder"><span class="ph-icon">📷</span>Before / After — Hail Damage</div>
+        <div class="gallery-item">
+          <img src="Images/BeforeAndAfter1.jpg" alt="Paintless dent repair before and after" loading="lazy" />
+          <div class="gallery-caption">Before / After — Dent Repair</div>
+        </div>
+        <div class="gallery-item">
+          <img src="Images/BeforeAndAfter2.jpg" alt="Paintless dent repair before and after" loading="lazy" />
+          <div class="gallery-caption">Before / After — Dent Repair</div>
+        </div>
+        <div class="gallery-item">
+          <img src="Images/BeforeAndAfter3.jpg" alt="Paintless dent repair before and after" loading="lazy" />
+          <div class="gallery-caption">Before / After — Dent Repair</div>
+        </div>
+        <div class="gallery-item">
+          <img src="Images/PDRComp2.jpg" alt="Paintless dent repair comparison" loading="lazy" />
+          <div class="gallery-caption">Before / After — PDR Result</div>
+        </div>
+        <div class="gallery-item">
+          <img src="Images/Operation2.jpg" alt="Paintless dent repair in progress" loading="lazy" />
+          <div class="gallery-caption">PDR — In Progress</div>
+        </div>
+        <div class="gallery-item">
+          <img src="Images/Dentbusters_brand.png" alt="Hail damage dent repair — we ain't afraid of no dents" loading="lazy" />
+        </div>
       </div>
-      <p class="gallery-note">Photos coming soon — check our <a href="https://www.google.com/maps/search/Dentbusters+of+Iowa" target="_blank" style="color:var(--blue);">Google listing</a> for current before/after photos.</p>
+      <p class="gallery-note">See more before/after photos on our <a href="https://www.google.com/maps/search/Dentbusters+of+Iowa" target="_blank" style="color:var(--blue);">Google listing</a>.</p>
     </div>
   </section>
 
