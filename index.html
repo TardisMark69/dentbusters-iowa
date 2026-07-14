@@ -652,8 +652,8 @@
     /* ── Contact ─────────────────────────────────────── */
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      grid-template-columns: 1.1fr 0.8fr 1.1fr;
+      gap: 2.5rem;
       align-items: start;
     }
     .contact-info h2 {
@@ -686,20 +686,22 @@
     }
     .contact-item a:hover { color: var(--white); }
     .call-first-box {
-      margin-top: 1.6rem;
-      background: rgba(249,168,37,0.14);
+      align-self: center;
+      background: rgba(84,104,255,0.10);
       border: 2px solid var(--gold);
       border-radius: var(--radius);
-      padding: 1.2rem 1.4rem;
+      padding: 2rem 1.6rem;
       text-align: center;
     }
     .call-first-box p {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.9rem;
+      font-size: 2.2rem;
       font-weight: 800;
-      line-height: 1.2;
-      color: var(--gold);
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+      color: #8b98ff;
       margin: 0;
+      text-rendering: optimizeLegibility;
     }
     .text-cta-box {
       background: rgba(249,168,37,0.12);
@@ -1250,10 +1252,10 @@
               <p>Monday – Friday: 9:30 AM – 5:00 PM<br />Saturday &amp; Sunday: Closed</p>
             </div>
           </div>
+        </div>
 
-          <div class="call-first-box">
-            <p>Please call first to make an appointment</p>
-          </div>
+        <div class="call-first-box">
+          <p>Please call first to make an appointment</p>
         </div>
 
         <div class="text-cta-box">
